@@ -10,6 +10,7 @@ import (
 
 var (
 	input   string
+	output  string
 	cfgFile string
 )
 
@@ -32,7 +33,8 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.gistsnip.yaml)")
-	rootCmd.PersistentFlags().StringVar(&input, "input", "", "config file (default is $HOME/.gistsnip.yaml)")
+	rootCmd.PersistentFlags().StringVarP(&input, "input", "i", "", "reads file as stdin")
+	rootCmd.PersistentFlags().StringVarP(&output, "output", "o", "", "writes stdout to file")
 }
 
 // initConfig reads in config file and ENV variables if set.

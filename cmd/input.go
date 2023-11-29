@@ -40,5 +40,5 @@ var inputCmd = &cobra.Command{
 }
 
 func init() {
-	inputCmd.Flags().StringVarP(&inputFilePath, "input", "i", "", "Input file path")
+	inputCmd.PersistentFlags().StringVarP(&inputFilePath, "input", "i", "", "Input file path")
 }

@@ -8,7 +8,10 @@ import (
 	"github.com/spf13/viper"
 )
 
-var cfgFile string
+var (
+	input   string
+	cfgFile string
+)
 
 // rootCmd represents the base command when called without any subcommands
 // TODO: write better rootCmd
@@ -29,6 +32,7 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.gistsnip.yaml)")
+	rootCmd.PersistentFlags().StringVar(&input, "input", "", "config file (default is $HOME/.gistsnip.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
